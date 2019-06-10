@@ -109,16 +109,9 @@ py_library(
         http_archive(
             name = "six",
             build_file_content = """
-# Rename six.py to __init__.py
-genrule(
-    name = "rename",
-    srcs = ["six.py"],
-    outs = ["__init__.py"],
-    cmd = "cat $< >$@",
-)
 py_library(
    name = "six",
-   srcs = [":__init__.py"],
+   srcs = [":six.py"],
    visibility = ["//visibility:public"],
 )""",
             sha256 = "e24052411fc4fbd1f672635537c3fc2330d9481b18c0317695b46259512c91d5",
