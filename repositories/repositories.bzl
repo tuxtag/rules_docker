@@ -75,12 +75,12 @@ def repositories():
         )
 
     if "containerregistry" not in excludes:
-	load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+        load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
         git_repository(
             name = "containerregistry",
             commit = "ce02126cb6d77e924a65ce3542310c329f948d16",
-	    remote = "https://github.com/tuxtag/containerregistry.git",
+            remote = "https://github.com/tuxtag/containerregistry.git",
         )
 
     # TODO(mattmoor): Remove all of this (copied from google/containerregistry)
