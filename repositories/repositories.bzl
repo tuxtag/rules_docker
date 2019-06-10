@@ -75,12 +75,12 @@ def repositories():
         )
 
     if "containerregistry" not in excludes:
-        http_archive(
+	load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+
+        git_repository(
             name = "containerregistry",
-            sha256 = "a8cdf2452323e0fefa4edb01c08b2ec438c9fa3192bc9f408b89287598c12abc",
-            strip_prefix = "containerregistry-" + CONTAINERREGISTRY_RELEASE[1:],
-            urls = [("https://github.com/google/containerregistry/archive/" +
-                     CONTAINERREGISTRY_RELEASE + ".tar.gz")],
+            commit = "ce02126cb6d77e924a65ce3542310c329f948d16",
+	    remote = "https://github.com/tuxtag/containerregistry.git",
         )
 
     # TODO(mattmoor): Remove all of this (copied from google/containerregistry)
